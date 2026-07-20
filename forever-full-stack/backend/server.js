@@ -15,12 +15,11 @@ connectDB();
 connectCloudinary();
 
 // middlewares
-app.use(express.json());
 app.use(
   cors({
     origin: [
-      "https://forever-8ab.pages.dev/",
-      "https://forever-full-stack-admin.gchaknalwar.workers.dev/",
+      "https://forever-8ab.pages.dev",
+      "https://forever-full-stack-admin.gchaknalwar.workers.dev",
     ],
     credentials: true,
   }),
