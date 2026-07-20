@@ -18,8 +18,8 @@ connectCloudinary();
 app.use(
   cors({
     origin: [
-      "https://forever-8ab.pages.dev",
-      "https://forever-full-stack-admin.gchaknalwar.workers.dev",
+      "https://forever-phi-rust.vercel.app",
+      "https://forever-u17u.vercel.app",
     ],
     credentials: true,
   }),
