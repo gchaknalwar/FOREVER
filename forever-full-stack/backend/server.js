@@ -17,14 +17,20 @@ connectCloudinary();
 // middlewares
 app.use(
   cors({
-    origin: [
-      "https://forever-phi-rust.vercel.app",
-      "https://forever-u17u.vercel.app",
-    ],
+    origin: function (origin, callback) {
+      if (
+        !origin ||
+        origin.endsWith(".vercel.app") ||
+        origin === "https://forever-8ab.pages.dev"
+      ) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
   }),
 );
-
 // api endpoints
 app.use("/api/user", userRouter);
 app.use("/api/product", productRouter);
