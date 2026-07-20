@@ -14,14 +14,16 @@ connectDB();
 connectCloudinary();
 
 // middlewares
-app.use(express.json()); // ← YE LINE WAPAS ADD KARO
+app.use(express.json());
 app.use(
   cors({
     origin: function (origin, callback) {
       if (
         !origin ||
         origin.endsWith(".vercel.app") ||
-        origin === "https://forever-8ab.pages.dev"
+        origin === "https://forever-8ab.pages.dev" ||
+        origin === "http://localhost:5173" ||
+        origin === "http://localhost:5174"
       ) {
         callback(null, true);
       } else {
