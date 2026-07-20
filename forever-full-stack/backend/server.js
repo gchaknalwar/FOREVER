@@ -8,13 +8,13 @@ import productRouter from "./routes/productRoute.js";
 import cartRouter from "./routes/cartRoute.js";
 import orderRouter from "./routes/orderRoute.js";
 
-// App Config
 const app = express();
 const port = process.env.PORT || 4000;
 connectDB();
 connectCloudinary();
 
 // middlewares
+app.use(express.json()); // ← YE LINE WAPAS ADD KARO
 app.use(
   cors({
     origin: function (origin, callback) {
@@ -31,7 +31,7 @@ app.use(
     credentials: true,
   }),
 );
-// api endpoints
+
 app.use("/api/user", userRouter);
 app.use("/api/product", productRouter);
 app.use("/api/cart", cartRouter);
